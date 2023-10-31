@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Alumnos</title>
+</head>
+<body>
+    <h1>Formulario de Alumnos</h1>
+    <form method="post" action="Ej2ficheros.php">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" maxlength="40"><br><br>
+
+        <label for="apellido1">Apellido1:</label>
+        <input type="text" name="apellido1" maxlength="40"><br><br>
+
+        <label for="apellido2">Apellido2:</label>
+        <input type="text" name="apellido2" maxlength="42"><br><br>
+
+        <label for="fecha_nacimiento">Fecha de Nacimiento (YYYY/MM/DD):</label>
+        <input type="text" name="fecha_nacimiento" maxlength="10"><br><br>
+
+        <label for="localidad">Localidad:</label>
+        <input type="text" name="localidad" maxlength="27"><br><br>
+
+        <input type="submit" name="submit" value="Guardar">
+    </form>
+
+    <?php
+            if (isset($_POST['submit'])) {
+                 $nombre = $_POST['nombre'];
+                $apellido1 = $_POST['apellido1'];
+                $apellido2 = $_POST['apellido2'];
+                $fecha_nacimiento = $_POST['fecha_nacimiento'];
+                $localidad = $_POST['localidad'];
+
+                $alumnoData = $nombre . "##" . $apellido1 . "##" . $apellido2 . "##" . $fecha_nacimiento . "##" . $localidad;
+
+            $file = fopen(__DIR__ . '/alumnos1.txt', 'a');
+            fwrite($file, $alumnoData . PHP_EOL);
+            fclose($file);
+
+}
+    ?>
+</body>
+</html>
