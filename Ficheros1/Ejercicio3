@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicio 3</title>
+</head>
+<body>
+<?php
+
+    $archivo = 'alumnos1.txt';
+
+    if (file_exists($archivo)) {
+       
+        $lineas = file($archivo); /*creo el array lineas con el contenido*/
+        
+        $numFilas = count($lineas); /* creo la variable numFilas para contar el número de lineas*/
+        
+        /*Comprobar si se han leído los datos */
+        if ($numFilas > 0) {
+            echo "<table border='1'>";
+            echo "<tr><th>Nombre</th><th>Apellido1</th><th>Apellido2</th><th>Fecha Nacimiento</th><th>Localidad</th></tr>";
+            
+            foreach ($lineas as $linea) {
+
+                /* substr se utiliza para dividir la línea en campos*/
+                $nombre = substr($linea, 0, 40);
+                $apellido1 = substr($linea, 40, 40);
+                $apellido2 = substr($linea, 80, 42);
+                $fecha_nacimiento = substr($linea, 122, 10);
+                $localidad = substr($linea, 132, 27);
+
+                echo "<tr>";
+                echo "<td>" . htmlspecialchars(trim($nombre)) . "</td>";
+                echo "<td>" . htmlspecialchars(trim($apellido1)) . "</td>";
+                echo "<td>" . htmlspecialchars(trim($apellido2)) . "</td>";
+                echo "<td>" . htmlspecialchars(trim($fecha_nacimiento)) . "</td>";
+                echo "<td>" . htmlspecialchars(trim($localidad)) . "</td>";
+                echo "</tr>";
+            }
+                                    /*he usado htmlspecialcharts para mostrar los datos en html y trim para borrar espacios en blanco*/
+            echo "</table>";
+        }
+        
+        echo "<p>Número de filas leídas: $numFilas</p>";
+    }
+    ?>
+</body>
+</html>
