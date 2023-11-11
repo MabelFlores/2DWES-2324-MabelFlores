@@ -1,0 +1,21 @@
+<HTML>
+<HEAD><Title> Conversion Decimal a base n </Title></HEAD>
+<BODY>
+<?php
+
+$num="48";
+$base = 8;
+
+$num2 = $num;
+$conversion = "";
+
+do {
+    $resto = $num % $base; /* calculamos el resto según la base indicada*/
+    $conversion= $resto . $conversion; /*concatenamos al principio de la cadena */
+    $num = (int)($num / $base);    
+} while ($num > 0);
+
+echo "Numero $num2 en base $base = $conversion";
+?>
+</BODY>
+</HTML>
