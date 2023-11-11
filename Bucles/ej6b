@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Factorial</title>
+</head>
+<body>
+    <?php
+    $num = 5;
+    $factorial = 1;
+
+    echo "$num! = ";
+
+    for($i = $num; $i >=1; $i--) { 
+        $factorial = $factorial* $i;
+        if ($i ===1) { 
+            echo $i;
+        } else {
+            echo "$i x ";
+        }
+    }
+ /* si i es igual a 1 se imprime sin la x */ 
+    echo " = $factorial";
+    ?>
+</body>
+</html>
