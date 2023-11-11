@@ -1,0 +1,28 @@
+<HTML>
+<HEAD><Title>Tabla Multiplicar con TD</Title></HEAD>
+<style>
+        table {
+            border-collapse: collapse;
+            width: 15%;
+           
+        }
+
+        th, td {
+            border: 1px solid black;
+        }
+
+    </style>
+<BODY>
+    <table>
+<?php
+
+$num="8";
+
+for ($i = 1; $i <= 10; $i++) {
+    $resultado = $num * $i;
+    echo "<tr><td>$num x $i</td><td>$resultado</td></tr>";
+}
+?>
+    </table>
+</BODY>
+</HTML>
