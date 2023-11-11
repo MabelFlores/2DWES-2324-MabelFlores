@@ -1,0 +1,21 @@
+<HTML>
+<HEAD><Title> Conversion IP Decimal a Binario </Title></HEAD>
+<BODY>
+<?php
+
+$num="168";
+
+$binario = "";
+
+$num2 = $num;
+
+do {
+    $resto = $num % 2; /* calculamos el resto que será 1 o 2*/
+    $binario = $resto . $binario; /*concatenamos al principio de la cadena */
+    $num = (int)($num / 2);  /*lo convertimos en entero para que el bucle termine */   
+} while ($num > 0);
+
+echo "Numero $num2 en binario = $binario";
+?>
+</BODY>
+</HTML>
