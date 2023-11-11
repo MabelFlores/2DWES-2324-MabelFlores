@@ -1,0 +1,29 @@
+<HTML>
+<HEAD><Title> Conversor Decimal a base 16 </Title></HEAD>
+<BODY>
+<?php
+
+$num = "222";
+$base = 16;
+
+$num2 = $num;
+$hexdecimal = "";
+
+do {
+    $resto = $num % $base;
+    $hexcaracter = ($resto < 10) ? $resto : chr(ord('A') + $resto - 10);
+    $hexdecimal = $hexcaracter . $hexdecimal;
+    $num = (int)($num / $base);
+} while ($num > 0);
+echo "Numero $num2 en base $base = $hexdecimal";
+
+/* línea 14: si es menor que 10 toma ese valor
+si es 10 o mayor se ejecuta la otra parte.
+chr convierte el valor ASCII calculado a un caracter
+ord'A' obtiene el valor de A que es 65.
+*/
+?>
+
+</BODY>
+</HTML>
+
