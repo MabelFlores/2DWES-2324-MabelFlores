@@ -25,6 +25,7 @@ $password = "rootroot";
 $dbname = "empleadosnn";
 
 try {
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -40,6 +41,7 @@ try {
     $stmt->execute();
     echo "New records created successfully";
     }
+  }
 catch(PDOException $e)
     {
     echo "Error: " . $e->getMessage();
